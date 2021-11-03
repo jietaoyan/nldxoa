@@ -124,7 +124,7 @@ public class SysAreaController extends BaseController{
 	
 	/**
 	 * 检查
-	 * @param SysArea
+	 * @param sysArea
 	 * @return
 	 */
 	@ApiOperation(value = "检查Name唯一", notes = "检查Name唯一")

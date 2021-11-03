@@ -2,7 +2,6 @@ package com.fc.v2.common.conf;
 
 import com.fasterxml.classmate.TypeResolver;
 import com.fc.v2.common.domain.AjaxResult;
-import com.fc.v2.iotmanage.model.respone.SpaceTerminalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,7 +44,7 @@ public class Knife4jConfiguration {
                 //.apis(RequestHandlerSelectors.basePackage("com.fc.v2.controller"))
                 .paths(PathSelectors.any())
                 .build()
-                .additionalModels(typeResolver.resolve(SpaceTerminalInfo.class))
+                //.additionalModels(typeResolver.resolve(SpaceTerminalInfo.class))
                 .additionalModels(typeResolver.resolve(AjaxResult.class))
                 ;
         return docket;
