@@ -1,15 +1,17 @@
 package com.fc.v2.iotmanage.controller;
 
 import com.fc.v2.common.domain.AjaxResult;
-import com.fc.v2.common.domain.ResuTree;
+import com.fc.v2.iotmanage.mapper.ShopInfoMapper;
 import com.fc.v2.iotmanage.model.request.TerminalHisQuery;
 import com.fc.v2.iotmanage.model.respone.LocTerminalInfo;
+import com.fc.v2.iotmanage.model.respone.ShopInfo;
 import com.fc.v2.iotmanage.model.respone.SpaceTerminalDetailInfo;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,16 +27,17 @@ public class SpaceController {
 
     private static Logger logger = LoggerFactory.getLogger(SpaceController.class);
 
+    @Autowired
+    private ShopInfoMapper shopInfoMapper;
 
     @ApiOperation(value = "获取空间列表", notes = "获取空间列表")
     @GetMapping("/get")
     @ResponseBody
     public AjaxResult getSpaceList(HttpServletRequest request) {
         //todo 完成物联网平台数据调用获取空间列表
-        LocTerminalInfo locTerminalInfo = new LocTerminalInfo();
-        List<LocTerminalInfo> list = new ArrayList<>();
-        list.add(locTerminalInfo);
-        return null;
+
+        List<ShopInfo> list = shopInfoMapper.selectByExample(null);
+        return AjaxResult.successData(200,list);
     }
 
 
