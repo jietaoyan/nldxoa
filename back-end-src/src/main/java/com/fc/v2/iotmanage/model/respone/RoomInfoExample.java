@@ -744,63 +744,63 @@ public class RoomInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andShopIdIsNull() {
-            addCriterion("shop_id is null");
+        public Criteria andSpaceIdIsNull() {
+            addCriterion("space_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdIsNotNull() {
-            addCriterion("shop_id is not null");
+        public Criteria andSpaceIdIsNotNull() {
+            addCriterion("space_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdEqualTo(Integer value) {
-            addCriterion("shop_id =", value, "shopId");
+        public Criteria andSpaceIdEqualTo(Integer value) {
+            addCriterion("space_id =", value, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdNotEqualTo(Integer value) {
-            addCriterion("shop_id <>", value, "shopId");
+        public Criteria andSpaceIdNotEqualTo(Integer value) {
+            addCriterion("space_id <>", value, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdGreaterThan(Integer value) {
-            addCriterion("shop_id >", value, "shopId");
+        public Criteria andSpaceIdGreaterThan(Integer value) {
+            addCriterion("space_id >", value, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("shop_id >=", value, "shopId");
+        public Criteria andSpaceIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("space_id >=", value, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdLessThan(Integer value) {
-            addCriterion("shop_id <", value, "shopId");
+        public Criteria andSpaceIdLessThan(Integer value) {
+            addCriterion("space_id <", value, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdLessThanOrEqualTo(Integer value) {
-            addCriterion("shop_id <=", value, "shopId");
+        public Criteria andSpaceIdLessThanOrEqualTo(Integer value) {
+            addCriterion("space_id <=", value, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdIn(List<Integer> values) {
-            addCriterion("shop_id in", values, "shopId");
+        public Criteria andSpaceIdIn(List<Integer> values) {
+            addCriterion("space_id in", values, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdNotIn(List<Integer> values) {
-            addCriterion("shop_id not in", values, "shopId");
+        public Criteria andSpaceIdNotIn(List<Integer> values) {
+            addCriterion("space_id not in", values, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdBetween(Integer value1, Integer value2) {
-            addCriterion("shop_id between", value1, value2, "shopId");
+        public Criteria andSpaceIdBetween(Integer value1, Integer value2) {
+            addCriterion("space_id between", value1, value2, "spaceId");
             return (Criteria) this;
         }
 
-        public Criteria andShopIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("shop_id not between", value1, value2, "shopId");
+        public Criteria andSpaceIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("space_id not between", value1, value2, "spaceId");
             return (Criteria) this;
         }
     }

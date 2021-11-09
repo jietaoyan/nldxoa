@@ -1,6 +1,7 @@
 package com.fc.v2.iotmanage.controller;
 
 import com.fc.v2.common.domain.AjaxResult;
+import com.fc.v2.iotmanage.mapper.RoomInfoMapper;
 import com.fc.v2.iotmanage.mapper.ShopInfoMapper;
 import com.fc.v2.iotmanage.mapper.SpaceInfoMapper;
 import com.fc.v2.iotmanage.model.request.TerminalHisQuery;
@@ -33,6 +34,9 @@ public class SpaceController {
 
     @Autowired
     private SpaceInfoMapper spaceInfoMapper;
+
+    @Autowired
+    private RoomInfoMapper roomInfoMapper;
     @ApiOperation(value = "获取空间", notes = "获取空间列表")
     @GetMapping("/get")
     @ResponseBody
@@ -70,40 +74,19 @@ public class SpaceController {
 
 
 
-    @ApiOperation(value = "获取空间下场所room数据", notes = "获取场所数据")
-    @GetMapping("/info/{spaceId}")
+    @ApiOperation(value = "获取空间下场所roomlist数据", notes = "获取场所roomlist数据")
+    @GetMapping("/roomlist/{spaceId}")
     @ResponseBody
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "spaceId",value = "空间编号", required = true, dataType = "String", paramType = "path", example = "0010")
+            @ApiImplicitParam(name = "spaceId",value = "空间编号", required = true, dataType = "Integer", paramType = "path", example = "0010")
     })
-    public AjaxResult getSpaceTerminalInfo(HttpServletRequest request,@PathVariable("spaceId") String shopId) {
+    public AjaxResult getSpaceRoomList(HttpServletRequest request,@PathVariable("spaceId") int shopId) {
         //todo 完成物联网平台数据调用
-        LocTerminalInfo locTerminalInfo = new LocTerminalInfo();
-        List<LocTerminalInfo> list = new ArrayList<>();
-        list.add(locTerminalInfo);
+
+        RoomInfoExample roomInfoExample = new RoomInfoExample();
+        roomInfoExample.createCriteria().andSpaceIdEqualTo(shopId);
+        List<RoomInfo> list = roomInfoMapper.selectByExample(roomInfoExample);
         return AjaxResult.successData(200,list);
-    }
-
-
-    @ApiOperation(value = "获取场所设备详情", notes = "获取场所设备详情")
-    @GetMapping("/infoDetail/{locId}")
-    @ResponseBody
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "locId",value = "场所编号", required = true, dataType = "String", paramType = "path", example = "0010")
-    })
-    public AjaxResult getSpaceTerminalDetailInfo(HttpServletRequest request,@PathVariable("locId") String locId) {
-        //todo 完成物联网平台数据调用
-        SpaceTerminalDetailInfo spaceTerminalDetailInfo = new SpaceTerminalDetailInfo();
-        return AjaxResult.successData(200,spaceTerminalDetailInfo);
-    }
-
-    @ApiOperation(value = "获取场所设备历史数据查询", notes = "获取场所设备历史数据查询")
-    @PostMapping(path = "/query", produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
-    public AjaxResult queryTerminalHisInfo(@RequestBody TerminalHisQuery terminalHisQuery){
-
-        //todo 获取物联网厂商设备数据
-        return AjaxResult.successData(200,null);
     }
 
 

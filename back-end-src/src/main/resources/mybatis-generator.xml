@@ -83,6 +83,6 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>-->
         
-        <table tableName='space_info' domainObjectName='SpaceInfo'/>
+        <table tableName='room_info' domainObjectName='RoomInfo'/>
     </context>
 </generatorConfiguration>
