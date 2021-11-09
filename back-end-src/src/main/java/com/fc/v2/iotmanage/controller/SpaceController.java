@@ -2,10 +2,10 @@ package com.fc.v2.iotmanage.controller;
 
 import com.fc.v2.common.domain.AjaxResult;
 import com.fc.v2.iotmanage.mapper.ShopInfoMapper;
+import com.fc.v2.iotmanage.mapper.SpaceInfoMapper;
 import com.fc.v2.iotmanage.model.request.TerminalHisQuery;
-import com.fc.v2.iotmanage.model.respone.LocTerminalInfo;
-import com.fc.v2.iotmanage.model.respone.ShopInfo;
-import com.fc.v2.iotmanage.model.respone.SpaceTerminalDetailInfo;
+import com.fc.v2.iotmanage.model.respone.*;
+import com.fc.v2.util.TreeUtil.TreeUtil;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -30,7 +31,9 @@ public class SpaceController {
     @Autowired
     private ShopInfoMapper shopInfoMapper;
 
-    @ApiOperation(value = "获取空间列表", notes = "获取空间列表")
+    @Autowired
+    private SpaceInfoMapper spaceInfoMapper;
+    @ApiOperation(value = "获取空间", notes = "获取空间列表")
     @GetMapping("/get")
     @ResponseBody
     public AjaxResult getSpaceList(HttpServletRequest request) {
@@ -40,9 +43,34 @@ public class SpaceController {
         return AjaxResult.successData(200,list);
     }
 
+    @ApiOperation(value = "获取空间树", notes = "获取空间列表,获取更新点，root=0")
+    @GetMapping("/getTree/{root}")
+    @ResponseBody
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "root",value = "根节点编号，获取根节点，root=0", required = true, dataType = "String", paramType = "path", example = "0")
+    })
+    public AjaxResult getSpaceTree(HttpServletRequest request, @PathVariable("root") int root) {
+        //todo 完成物联网平台数据调用获取空间列表
 
 
-    @ApiOperation(value = "获取空间下场所数据", notes = "获取场所数据")
+        List<SpaceInfo> list= spaceInfoMapper.selectByExample(null);
+        List<SpaceTree> treeList = list.stream()
+                .filter(dept -> dept.getSpaceId()!=dept.getParentId())
+                .map(dept -> {
+                    SpaceTree node = new SpaceTree();
+                    node.setSpaceId(dept.getSpaceId());
+                    node.setId(dept.getSpaceId());
+                    node.setParentId(dept.getParentId());
+                    node.setSpaceName(dept.getSpaceName());
+                    return node;
+                }).collect(Collectors.toList());
+
+        return AjaxResult.successData(200,TreeUtil.bulid(treeList, root));
+    }
+
+
+
+    @ApiOperation(value = "获取空间下场所room数据", notes = "获取场所数据")
     @GetMapping("/info/{spaceId}")
     @ResponseBody
     @ApiImplicitParams({

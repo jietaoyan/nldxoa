@@ -50,7 +50,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成Model类存放位置 -->
-        <javaModelGenerator targetPackage="com.fc.v2.iotmanage.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.fc.v2.iotmanage.model.respone" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -83,6 +83,6 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>-->
         
-        <table tableName='room_info' domainObjectName='RoomInfo'/>
+        <table tableName='space_info' domainObjectName='SpaceInfo'/>
     </context>
 </generatorConfiguration>
