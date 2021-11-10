@@ -83,6 +83,10 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>-->
         
-        <table tableName='room_info' domainObjectName='RoomInfo'/>
+        <table tableName='air_condition_info' domainObjectName='AirConditionInfo'/>
+        <table tableName='socket_info' domainObjectName='SocketInfo'/>
+        <table tableName='switch_info' domainObjectName='SwitchInfo'/>
+        <table tableName='env_info' domainObjectName='EnvInfo'/>
+        <table tableName='smoke_info' domainObjectName='SmokeInfo'/>
     </context>
 </generatorConfiguration>

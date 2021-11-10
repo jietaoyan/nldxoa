@@ -73,7 +73,6 @@ public class SpaceController {
     }
 
 
-
     @ApiOperation(value = "获取空间下场所roomlist数据", notes = "获取场所roomlist数据")
     @GetMapping("/roomlist/{spaceId}")
     @ResponseBody
