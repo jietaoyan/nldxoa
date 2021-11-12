@@ -12,7 +12,7 @@
     <artifactId>demo-pure</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo-pure</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
     <description>demo-pure</description>
 
     <properties>

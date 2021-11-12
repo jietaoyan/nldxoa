@@ -1,7 +1,14 @@
 package com.fc.v2.iotmanage.model.respone;
 
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.Serializable;
 
+@Slf4j
+@ApiModel
+@Data
 public class RoomInfo implements Serializable {
     /**
      *

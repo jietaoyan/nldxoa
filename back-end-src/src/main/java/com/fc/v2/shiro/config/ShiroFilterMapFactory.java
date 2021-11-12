@@ -47,10 +47,15 @@ public class ShiroFilterMapFactory {
 		// 放验证码
 		filterChainDefinitionMap.put("/captcha/**", "anon");
 		// 放接口文档 By AngLee
-//		filterChainDefinitionMap.put("/doc.html", "anon");
-//		filterChainDefinitionMap.put("/webjars/**/**", "anon");
-//		filterChainDefinitionMap.put("/swagger-resources/**/**", "anon");
-//		filterChainDefinitionMap.put("/v2/api-docs*", "anon");
+		filterChainDefinitionMap.put("/doc.html", "anon");
+		filterChainDefinitionMap.put("/webjars/**/**", "anon");
+		filterChainDefinitionMap.put("/swagger-resources/**/**", "anon");
+		filterChainDefinitionMap.put("/v2/api-docs*", "anon");
+
+		// 放行接口 By so 2021年11月12日11:30:24
+		filterChainDefinitionMap.put("/room/**", "anon");
+		filterChainDefinitionMap.put("/space/**", "anon");
+		filterChainDefinitionMap.put("/terminal/**", "anon");
 		// 释放 druid 监控画面
 		filterChainDefinitionMap.put("/druid/**", "anon");
 		// 释放websocket请求

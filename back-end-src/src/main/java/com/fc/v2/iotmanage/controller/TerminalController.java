@@ -20,9 +20,11 @@ public class TerminalController {
 
 
     @ApiOperation(value = "获取场所设备历史数据查询", notes = "获取场所设备历史数据查询")
-    @PostMapping(path = "/query", produces = {"application/json;charset=UTF-8"})
+    @PostMapping(path = "/socket", produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public AjaxResult queryTerminalHisInfo(@RequestBody TerminalHisQuery terminalHisQuery){
+    public AjaxResult querySocketHisInfo(@RequestBody TerminalHisQuery terminalHisQuery){
+
+
 
         //todo 获取物联网厂商设备数据
         return AjaxResult.successData(200,null);

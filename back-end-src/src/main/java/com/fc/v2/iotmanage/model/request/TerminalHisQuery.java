@@ -11,7 +11,7 @@ public class TerminalHisQuery {
     @ApiModelProperty(value = "type",name = "设备类型", example = "开关/10A插座-1/10A插座-2/16A插座/空调")
     private String type;
 
-    @ApiModelProperty(value = "period",name = "期间", example = "day/week/month/year")
+    @ApiModelProperty(value = "period",name = "期间", example = "hour/day/week/month")
     private String period;
 
     @ApiModelProperty(value = "roomId",name = "房间ID", example = "001")
