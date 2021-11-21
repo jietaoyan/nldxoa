@@ -1,6 +1,6 @@
 iot:
   apikey: R3gO5ZBoQ6TeQBdQNAyixCc8kCEqq3T8
-  host: https://lvzhouapi.h3c.com/iot
+  host: https://iot-developer.h3c.com:65104/restapi/
 # 项目相关配置
 demo-pure:
   #名称

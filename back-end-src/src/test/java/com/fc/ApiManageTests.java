@@ -1,11 +1,13 @@
 package com.fc;
 
 
+import com.fc.v2.iotmanage.common.constant.SpaceConstant;
 import com.fc.v2.iotmanage.mapper.SpaceInfoMapper;
 import com.fc.v2.iotmanage.model.respone.SpaceInfo;
 import com.fc.v2.iotmanage.model.respone.SpaceTree;
 import com.fc.v2.iotmanage.service.IAPIManage;
 import com.fc.v2.iotmanage.service.ISpaceManage;
+import com.fc.v2.iotmanage.util.RestTemplateUtils;
 import com.fc.v2.util.TreeUtil.TreeUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -63,6 +65,18 @@ public class ApiManageTests {
 
         System.out.println(treeList);
         System.out.println(TreeUtil.bulid(treeList, 1));
+    }
+    @Test
+    public void testRest(){
+        String URL ="https://iot-developer.h3c.com:65104/restapi/" + SpaceConstant.GET_SHOP_INFO;
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("apikey","R3gO5ZBoQ6TeQBdQNAyixCc8kCEqq3T8");
+        RestTemplate restTemplate = new RestTemplate();
+        //restTemplate.setErrorHandler(new RestTemplateUtils.DefaultResponseErrorHandler());
+        HttpEntity<String> entity = new HttpEntity<String>("parameters", httpHeaders);
+        ResponseEntity<String> result = restTemplate.exchange(URL, HttpMethod.GET, entity, String.class);
+
+        System.out.println(result.toString());//return result.toString();
     }
 
 }
