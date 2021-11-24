@@ -1,13 +1,15 @@
 package com.fc;
 
 
+import com.fc.v2.iotmanage.client.H3cServerClient;
 import com.fc.v2.iotmanage.common.constant.SpaceConstant;
+import com.fc.v2.iotmanage.h3cBo.H3CResponse;
+import com.fc.v2.iotmanage.h3cBo.UserShop;
 import com.fc.v2.iotmanage.mapper.SpaceInfoMapper;
 import com.fc.v2.iotmanage.model.respone.SpaceInfo;
 import com.fc.v2.iotmanage.model.respone.SpaceTree;
 import com.fc.v2.iotmanage.service.IAPIManage;
 import com.fc.v2.iotmanage.service.ISpaceManage;
-import com.fc.v2.iotmanage.util.RestTemplateUtils;
 import com.fc.v2.util.TreeUtil.TreeUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +34,16 @@ public class ApiManageTests {
     @Autowired
     public IAPIManage iAPIManage;
 
+    @Resource
+    H3cServerClient h3cServerClient;
+
+    @Test
+    public void testH3cClient(){
+        H3CResponse<List<UserShop>> response = h3cServerClient.getUserShop();
+        System.err.println(response);
+
+
+    }
 
     @Test
     public void main() throws Exception{
