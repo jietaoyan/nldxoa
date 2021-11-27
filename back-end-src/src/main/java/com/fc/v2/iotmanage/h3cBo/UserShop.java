@@ -1,11 +1,9 @@
 package com.fc.v2.iotmanage.h3cBo;
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 @Data
 public class UserShop {
 
